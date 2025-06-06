@@ -1,0 +1,83 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Movil2.Pages.ProductosPage"
+             Title="Productos">
+	<ScrollView>
+		<VerticalStackLayout Padding="20" Spacing="15">
+			<Label Text="Registrar nuevo producto"
+                   FontAttributes="Bold"
+                   FontSize="20"
+                   HorizontalOptions="Center" />
+			<Entry x:Name="NombreEntry"
+                   Placeholder="Nombre del producto"
+                   BackgroundColor="#eeeeee"
+                   Margin="0,5"
+                   HeightRequest="40"
+                   Keyboard="Default" />
+			<Entry x:Name="PrecioEntry"
+                   Placeholder="Precio"
+                   BackgroundColor="#eeeeee"
+                   Margin="0,5"
+                   HeightRequest="40"
+                   Keyboard="Numeric" />
+			<Button Text="Agregar Producto"
+                    Clicked="OnAgregarClicked"
+                    BackgroundColor="#007aff"
+                    TextColor="White"
+                    CornerRadius="10" />
+			<Label Text="Lista de productos"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   Margin="0,20,0,10" />
+			<CollectionView x:Name="ProductosListView"
+                            SelectionMode="None">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<Frame Margin="0,5"
+                               Padding="10"
+                               BorderColor="#cccccc"
+                               CornerRadius="12"
+                               BackgroundColor="White"
+                               HasShadow="True"
+                               HorizontalOptions="FillAndExpand">
+							<Grid ColumnDefinitions="*,Auto,Auto" HorizontalOptions="FillAndExpand">
+								<VerticalStackLayout Grid.Column="0" HorizontalOptions="FillAndExpand">
+									<Label Text="{Binding Nombre}"
+                                           FontSize="18"
+                                           FontAttributes="Bold"
+                                           TextColor="Black"
+                                           LineBreakMode="WordWrap" />
+									<Label Text="{Binding Precio, StringFormat='Precio: {0:C}'}"
+                                           FontSize="14"
+                                           TextColor="Gray"
+                                           LineBreakMode="WordWrap" />
+								</VerticalStackLayout>
+								<Button Grid.Column="1"
+                                        Text="Editar"
+                                        BackgroundColor="#ff9500"
+                                        TextColor="White"
+                                        CornerRadius="8"
+                                        Padding="10,5"
+                                        FontSize="12"
+                                        Margin="0,0,5,0"
+                                        Clicked="OnEditarClicked"
+                                        CommandParameter="{Binding .}"
+                                        VerticalOptions="Center" />
+								<Button Grid.Column="2"
+                                        Text="Eliminar"
+                                        BackgroundColor="#ff3b30"
+                                        TextColor="White"
+                                        CornerRadius="8"
+                                        Padding="10,5"
+                                        FontSize="12"
+                                        Clicked="OnEliminarClicked"
+                                        CommandParameter="{Binding .}"
+                                        VerticalOptions="Center" />
+							</Grid>
+						</Frame>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>

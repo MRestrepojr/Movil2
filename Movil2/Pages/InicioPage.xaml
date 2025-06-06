@@ -1,0 +1,15 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Movil2.Pages.InicioPage"
+             Title="Inicio">
+
+	<StackLayout Padding="20">
+		<Label Text="Bienvenido a Movil2"
+               FontSize="24"
+               HorizontalOptions="Center" />
+		<Label Text="Esta app gestiona productos usando SQLite y .NET MAUI."
+               FontSize="16"
+               Margin="0,20,0,0"
+               HorizontalOptions="Center" />
+	</StackLayout>
+</ContentPage>
